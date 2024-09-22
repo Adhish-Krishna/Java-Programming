@@ -19,6 +19,6 @@ class BinarySearch{
                 low = mid + 1;
             }
         }
-        System.out.println("The element is found at index "+ index);
+        System.out.println("The Element Is Found At Index "+ index);
     }
 }
