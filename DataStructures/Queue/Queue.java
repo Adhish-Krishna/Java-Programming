@@ -5,12 +5,14 @@ public class Queue{
     private int front;
     private int size;
     private int[] arr;
+    private boolean isFirstAdd;
 
     public queue(int size){
       this.size = size;
       this.front = -1;
       this.rear = -1;
       this.arr = new int[size];
+      this.isFirstAdd = false;
     }
   }
 
@@ -34,6 +36,10 @@ public class Queue{
   }
 
   void Enqueue(queue nq , int data){
+    if(nq.isFirstAdd == false){
+      nq.isFirstAdd = true;
+      nq.front = 0;
+    }
     if(!isFull(nq)){
       nq.rear++;
       nq.arr[nq.rear] = data;
@@ -57,7 +63,6 @@ public class Queue{
     Queue q = new Queue();
     queue nq = q.CreateQueue(5);
     q.Enqueue(nq, 1);
-    nq.front = 0;
     q.Enqueue(nq, 2);
     q.Enqueue(nq, 3);
     q.Enqueue(nq, 4);
